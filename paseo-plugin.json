@@ -1,0 +1,6 @@
+{
+  "id": "paseo-kiro-usage",
+  "name": "Kiro Usage",
+  "description": "Show Kiro account credits in Paseo Usage",
+  "requirements": { "paseo": ">=0.15.0" }
+}

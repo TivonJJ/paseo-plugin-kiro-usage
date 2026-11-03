@@ -1,0 +1,16 @@
+{
+  "name": "paseo-plugin-kiro-usage",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test server/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@getpaseo/plugin": "0.15.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.4.3"
+  }
+}

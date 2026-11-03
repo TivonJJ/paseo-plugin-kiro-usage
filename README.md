@@ -14,11 +14,10 @@ The CLI probe may create an empty Kiro history entry. It is run only when Paseo 
 
 Requires Paseo 0.15 or later and a signed-in Kiro CLI on the same host as the Paseo daemon.
 
+Install directly from the GitHub repository, no local build or setup needed:
+
 ```sh
-npm install
-npm test
-npm run typecheck
-paseo plugin install /absolute/path/to/paseo-plugin-kiro-usage
+paseo plugin install git@github.com:TivonJJ/paseo-plugin-kiro-usage.git
 ```
 
 Enable plugins in Paseo Settings if they are disabled, then open **Usage**. To refresh manually, use `paseo usage ls --refresh` on the daemon host. For a manual Kiro baseline, run `kiro-cli` and enter `/usage`.

@@ -17,7 +17,7 @@ Requires Paseo 0.15 or later and a signed-in Kiro CLI on the same host as the Pa
 Install directly from the GitHub repository, no local build or setup needed:
 
 ```sh
-paseo plugin install git@github.com:TivonJJ/paseo-plugin-kiro-usage.git
+paseo plugin install [git@github.com:TivonJJ/paseo-plugin-kiro-usage.git](https://github.com/TivonJJ/paseo-plugin-kiro-usage)
 ```
 
 Enable plugins in Paseo Settings if they are disabled, then open **Usage**. To refresh manually, use `paseo usage ls --refresh` on the daemon host. For a manual Kiro baseline, run `kiro-cli` and enter `/usage`.

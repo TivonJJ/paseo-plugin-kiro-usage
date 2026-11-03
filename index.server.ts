@@ -22,6 +22,7 @@ export default function contribute(server: PluginServerContext) {
   server.registerUsageSource({
     id: 'kiro-usage',
     label: 'Kiro',
+    icon: 'icon.svg',
     input,
     discover: async (scope) => {
       if (scope.kind === 'session' && scope.provider !== 'kiro') return [];

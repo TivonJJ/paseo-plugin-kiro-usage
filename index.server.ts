@@ -4,8 +4,7 @@ import { delimiter, join } from 'node:path';
 import type { PluginServerContext } from '@getpaseo/plugin/server';
 import { hashAccountKey } from '@getpaseo/plugin/server/usage';
 import { z } from 'zod';
-import { readKiroUsage } from './server/probe';
-import { parseKiroUsage } from './server/usage';
+import { fetchKiroUsage } from './server/fetch';
 
 const input = z.object({ kiroHome: z.string().min(1), cliPath: z.string().min(1) }).strict();
 
@@ -43,14 +42,14 @@ export default function contribute(server: PluginServerContext) {
     fetch: async (value) => {
       const { kiroHome, cliPath } = input.parse(value);
       try {
-        return parseKiroUsage(await readKiroUsage(cliPath, kiroHome));
+        return await fetchKiroUsage(cliPath, kiroHome);
       } catch (error) {
         const code = (error as NodeJS.ErrnoException).code;
         return {
           status: 'error' as const,
           error: code === 'ENOENT' ? 'Kiro CLI not found'
             : code === 'ETIMEDOUT' ? 'Kiro usage query timed out'
-            : 'Kiro usage query failed; check kiro-cli /usage locally',
+            : 'Kiro usage query failed; check Kiro CLI login locally',
         };
       }
     },

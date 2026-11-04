@@ -2,12 +2,6 @@
 
 Shows Kiro account credits in Paseo's built-in **Usage** view. This is account quota, not an individual agent's token count. No iOS app modification is needed.
 
-## Showcase
-
-![Kiro usage in Paseo 1](showcase/kiro-01.jpg)
-
-![Kiro usage in Paseo 2](showcase/kiro-02.JPG)
-
 ## How it works
 
 The server-only Paseo plugin registers a usage source. A refresh starts `kiro-cli acp --agent-engine=v3` with the selected `KIRO_HOME` and requests `_kiro/account/getUsage`. It maps the structured plan credits, reset date, and optional bonus credits into Paseo's usage report. Some Kiro releases implement this method without advertising it, so the plugin tries the request directly. If the V3 method is unavailable, it falls back to `kiro-cli chat --v2 --no-interactive /usage`. Authentication failures and malformed V3 usage data are reported as errors instead of silently using the legacy path. Paseo normally caches reports for five minutes.
@@ -29,3 +23,11 @@ paseo plugin install https://github.com/TivonJJ/paseo-plugin-kiro-usage
 Enable plugins in Paseo Settings if they are disabled, then open **Usage**. To refresh manually, use `paseo usage ls --refresh` on the daemon host. For a manual Kiro baseline, run `kiro-cli` and enter `/usage`.
 
 Do not install the plugin into a daemon without reviewing its code: Paseo server plugins run with the daemon user's local access.
+
+
+## Showcase
+
+<p>
+  <img src="showcase/kiro-01.jpg" alt="Kiro usage in Paseo 1" width="300" />
+  <img src="showcase/kiro-02.JPG" alt="Kiro usage in Paseo 2" width="300" />
+</p>
